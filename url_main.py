@@ -40,25 +40,24 @@ class MyServer(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/html")
             self.end_headers()
             self.wfile.write(bytes("<html><head><title>https://pythonbasics.org</title></head>", "utf-8"))
-            self.wfile.write(bytes("<body>", "utf-8"))
-            self.wfile.write(bytes("<h3> Welcome to URL Redirector </h3>", "utf-8"))
+            self.wfile.write(bytes("<body style=\"background-color:#F2AA4CFF\">", "utf-8"))
+            self.wfile.write(bytes("<h3 style=\"margin-top: 30px;\"><center> Welcome to URL Redirector </center><br></h3>", "utf-8"))
             self.wfile.write(bytes(
-                "<p> Following the current URL, add a forward slash and your short URL in the address box above to continue </p>",
+                "<p><center> Following the current URL, add a forward slash and your short URL in the address box above to continue </center></p>",
                 "utf-8"))
             self.wfile.write(
-                bytes("<p> For example, after \"localhost:8000\" add \"/google\"</p></body></html>", "utf-8"))
-
+                bytes("<p><center> For example, after \"localhost:8000\" add \"/google\"</center></p></body></html>", "utf-8"))
         else:
             self.send_response(200)
             self.send_header("Content-type", "text/html")
             self.end_headers()
             self.wfile.write(bytes("<html><head><title>https://pythonbasics.org</title></head>", "utf-8"))
-            self.wfile.write(bytes("<body>", "utf-8"))
-            self.wfile.write(bytes("<h3>No URL Found for: %s </h3>" % self.path.strip("/"), "utf-8"))
-            self.wfile.write(bytes("<form method = \"post\">", "utf-8"))
+            self.wfile.write(bytes("<body style=\"background-color:#F2AA4CFF\">", "utf-8"))
+            self.wfile.write(bytes("<h3 style=\"margin-top: 30px;\"><center>No URL Found for: %s </center><br></h3>" % self.path.strip("/"), "utf-8"))
+            self.wfile.write(bytes("<form method = \"post\"><center>", "utf-8"))
             self.wfile.write(bytes("Enter the long URL: <input type=\"text\" name=\"long_url\" />", "utf-8"))
-            self.wfile.write(bytes("<p></p><input type=\"submit\" value=\"Submit\" />", "utf-8"))
-            self.wfile.write(bytes("</form>", "utf-8"))
+            self.wfile.write(bytes("<p><center></center></p><input type=\"submit\" value=\"Submit\" />", "utf-8"))
+            self.wfile.write(bytes("</center></form>", "utf-8"))
             self.wfile.write(bytes("</body></html>", "utf-8"))
 
     def do_POST(self):
@@ -71,7 +70,7 @@ class MyServer(BaseHTTPRequestHandler):
             self.end_headers()
             s_url = self.path
             self.wfile.write(
-                bytes("<html><body><p> Please reload the page to be redirected to %s </p></body></html>" % l_url, "utf-8"))
+                bytes("<html><body style=\"background-color:#F2AA4CFF\"><p style=\"margin-top: 30px;\"><center><b> Please reload the page to be redirected to %s </b></center></p></body></html>" % l_url, "utf-8"))
 
             url_dict = {}
 
@@ -85,8 +84,8 @@ class MyServer(BaseHTTPRequestHandler):
                     self.send_header("Content-type", "text/html")
                     self.end_headers()
                     self.wfile.write(bytes("<html><head><title>https://pythonbasics.org</title></head>", "utf-8"))
-                    self.wfile.write(bytes("<body>", "utf-8"))
-                    self.wfile.write(bytes("<h3> Error finding URL </h3>", "utf-8"))
+                    self.wfile.write(bytes("<body style=\"background-color:#F2AA4CFF\">", "utf-8"))
+                    self.wfile.write(bytes("<h3 style=\"margin-top: 30px;\"><center><b> Error finding URL </b></center></h3>", "utf-8"))
 
             try:
                 f = open("url.txt", "w")
@@ -98,15 +97,15 @@ class MyServer(BaseHTTPRequestHandler):
                 self.send_header("Content-type", "text/html")
                 self.end_headers()
                 self.wfile.write(bytes("<html><head><title>https://pythonbasics.org</title></head>", "utf-8"))
-                self.wfile.write(bytes("<body>", "utf-8"))
-                self.wfile.write(bytes("<h3> Error storing URL </h3>", "utf-8"))
+                self.wfile.write(bytes("<body style=\"background-color:#F2AA4CFF\">", "utf-8"))
+                self.wfile.write(bytes("<h3 style=\"margin-top: 30px;\"><center><b> Error storing URL </b></center></h3>", "utf-8"))
         else:
             self.send_response(200)
             self.send_header("Content-type", "text/html")
             self.end_headers()
             self.wfile.write(bytes("<html><head><title>https://pythonbasics.org</title></head>", "utf-8"))
-            self.wfile.write(bytes("<body>", "utf-8"))
-            self.wfile.write(bytes("<h3> Improper URL Entered </h3>", "utf-8"))
+            self.wfile.write(bytes("<body style=\"background-color:#F2AA4CFF\">", "utf-8"))
+            self.wfile.write(bytes("<h3 style=\"margin-top: 30px;\"><center><b> Improper URL Entered </b></center></h3>", "utf-8"))
 
 
 if __name__ == "__main__":
